@@ -5,10 +5,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-
 require 'rack/test'
 require 'sinatra'
+require 'webmock/rspec'
 require './api.rb'
+
+WebMock.disable_net_connect!(allow_localhost: true)
 
 def app
   Sinatra::Application
